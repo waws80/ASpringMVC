@@ -1,18 +1,18 @@
-#<center>AsMVC框架
+<center>AsMVC框架
 
-###由来：
+由来：
 前段时间在公司写微信公众号，用的是SpringMVC写的后台，以前从来没接触过这玩意，第一次接触感觉还不错挺容易上手的不就是接口获取到数据往前台发么，至于你前台H5页面想干嘛我管不着，爱干嘛干嘛去，从此就掉进了坑，没事写着玩玩，突然有天感觉安卓端的是不是也可以向类似SpringMVC框架这样子呢？虽然说目前用的MVP框架也挺不错的，但是还是想尝试下自己写一个类似于大SpringMVC那样的框架<br>
-###使用的技术<br>
+使用的技术<br>
 反射、注解、Kotlin
 <br>
-###流程<br>
+流程<br>
 ![](https://github.com/waws80/ASpringMVC/blob/master/AsMVC%E6%A1%86%E6%9E%B6.png?raw=true)
 <br>
-###代码流程
+代码流程
 
 * application中注册<br>
 
-######代码示例
+代码示例
 
        /**
          * @param activityPkgs activity的包名集合
@@ -25,7 +25,7 @@
         AsMVC.setIndex("/a/",MainActivity::class.java)
 * controller示例<br>
 
-######代码示例
+代码示例
 
     @Controller
     @RequestMapping("/a")
@@ -52,7 +52,7 @@
             }
         }
     }
-######代码介绍：<br>
+代码介绍：<br>
   注解是当前接口名字<br>
   map：从UI界面传过来的所有的值，ctx：上下文对象（applicationContext）<br>
   接下来是一个判断<br>
@@ -62,7 +62,7 @@
   
 * Activity<br>
  
-######代码示例：<br>
+代码示例：<br>
 	@Alias("second")
 	class SecondActivity : 	AppCompatActivity(),ControllerCallBack {
 
@@ -82,7 +82,7 @@
         Toast.makeText(this,"${any.size}",Toast.LENGTH_SHORT).show()
     }
 	}
-######代码介绍<br>
+代码介绍<br>
 类注解：别名<br>
 @Values注解：控制器启动当前页面后返回的值<br>
 当前activity想要拿到控制器的回调信息，必须实现ControllerCallBack接口。<br>
