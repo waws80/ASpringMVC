@@ -25,22 +25,6 @@ class SecondActivity : AppCompatActivity(),ControllerCallBack {
         setContentView(R.layout.activity_second)
         val tv = findViewById(R.id.second) as TextView
         tv.text = value!!["hehe"] as String
-        (value["list"] as MutableList<String>).forEach {
-            asmlog(it)
-        }
-        asmlog((value["user"] as AController.AB).toString())
-
-        asmlog("${value.size}")
-
-
-    }
-
-    fun bt(view: View){
-        val map = HashMap<String,Any>()
-        //map.put("user",(value["user"])
-        map.put("user",value!!["user"]!!)
-        map.put("list", value["list"]!!)
-        AsMVC.router("/a/thirdb",map)
     }
 
     override fun callBack(any: HashMap<String, Any>) {

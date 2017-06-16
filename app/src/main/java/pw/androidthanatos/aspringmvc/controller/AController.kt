@@ -32,13 +32,14 @@ class AController {
     @RequestMapping("/thirdb")
     fun b(map: HashMap<String,Any>,ctx: Context){
         Toast.makeText(ctx,"hello\n${map["list"]}",Toast.LENGTH_SHORT).show()
-
-        callBack.callBack(map)
-
-       // ModelAndView().addAttribute("user",map["user"] as AB).addView("thirdActivity").go()
-
-
-
+        when((map["list"] as List<String>)[0] == "1"){
+            true ->{
+                ModelAndView().addAttribute("user",map["user"] as AB).addView("thirdActivity").go(false)
+            }
+            false ->{
+                callBack.callBack(map)
+            }
+        }
     }
 }
 

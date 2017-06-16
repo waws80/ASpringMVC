@@ -29,11 +29,16 @@ class A: Application(){
 
         controllerClasses.add(BController::class.java)
 
-
         val activityPkgs: MutableList<String> = mutableListOf()
         activityPkgs.add(packageName)
-        val config = ASMConfig("thanatos","androidthanatos.pw",activityPkgs,controllerClasses)
+        /**
+         * @param activityPkgs activity的包名集合
+         * @param controllerClasses 控制器的类集合
+         */
+        val config = ASMConfig("xxx","xxx",activityPkgs,controllerClasses)
+        //注册框架
         AsMVC.install(this.applicationContext,config,true)
+        //设置程序的入口为 "/a/"接口  并且关闭程序默认主界面
         AsMVC.setIndex("/a/",MainActivity::class.java)
     }
 
